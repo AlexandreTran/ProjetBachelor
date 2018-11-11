@@ -1,0 +1,32 @@
+.wrapper > div {
+  padding : 15px;
+}
+
+.wrapper{
+  display: grid;
+  grid-template-columns: 8fr 2fr 2fr;
+  grid-gap: 1em;
+  grid-auto-rows: minmax(60px, auto);
+}
+
+.header{
+  background: #AA205A;
+  color: #fff;
+  font-family: 'Montserrat';
+  font-size: 20px;
+}
+
+.logo{
+  margin-left: 30px;
+}
+
+.onglet{
+  margin-top: 6px;
+  font-size: 14px;
+  margin-left: 60px;
+}
+.onglet2{
+  margin-top: 6px;
+  font-size: 14px;
+  margin-right: 10px;
+}

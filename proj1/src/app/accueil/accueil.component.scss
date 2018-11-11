@@ -1,0 +1,45 @@
+.content{
+  padding: 40px;
+}
+
+.wrapper{
+  display: grid;
+  grid-template-rows: 100px;
+}
+
+input{
+  width: 70%;
+}
+
+.input{
+  text-align: center;
+}
+
+
+button{
+  position:absolute;
+  border:none;
+  text-align:center;
+}
+
+h3{
+  font-size: 20px;
+  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
+
+}
+
+.fac{
+  padding-left: 80px;
+}
+
+
+select{
+  width: 50%;
+  height: 40px;
+}
+
+.fac2{
+  padding-left: 80px;
+  padding-top: 30px;
+}
