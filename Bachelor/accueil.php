@@ -16,12 +16,9 @@ integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeV
   
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/css?family=Montserrat:300,700" rel="stylesheet">
-<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet"><meta charset="UTF-8">
 <title>accueil</title>
 </head>
-
-
 
 <script>
 
@@ -43,8 +40,8 @@ integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeV
 }
 </script>
 
-<body>
 
+<body>
 
 <nav>
   <div class="header">
@@ -64,12 +61,14 @@ integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeV
 							?>
         <?php
 								if (isset($_SESSION['id'])) {
-									echo '<form action="logout.php" method="POST">
-									<button type="submit" name="submit">Logout</button>
+									echo '<form action="logout.php" method="POST" id="ong2">
+									<button type="submit" name="submit" class="btn btn-dark btn-sm" id="logout">Se deconnecter</button>
 									</form>';
 								}
 								else {
-									echo '<a id="ong3" href="connect.php" style="color:white;">Me connecter</a>';
+                  // echo '<a id="ong3" href="connect.php" style="color:white;">Me connecter</a>';
+                  echo '<a href="connect.php" id="ong2"><button class="btn btn-dark btn-sm">Se connecter</button></a>';
+
 								}
 							?>
       </div> 
@@ -81,20 +80,19 @@ integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeV
   <div class="content">
   <div class="wrapper2">
       <div class="input">
-         <input type="text" name="recherche" placeholder="Rechercher un cours" class="input3">
-           <button type="button" name="button"><i class="fas fa-search"></i></button>
+      <input type="text" name="recherche" placeholder="Rechercher un cours" class="form-control" aria-label="Search" style="width:60%; left:50%; margin:auto;">
       </div>
 
 
 
       
       <div class="fac">
-        <h3>Dans quelle faculté êtes-vous</h3>
+        <h3 style="font-size:25px;">Dans quelle faculté êtes-vous</h3>
       </div>
 
     <form name="prog" action="catalogue.php" method="post">
       <div class="fac2">
-        <select name="faculte" id="faculte" onchange="programme(this)">
+        <select name="faculte" id="faculte" onchange="programme(this)" class="form-control form-control-sm" style="width:50%">
   
             <option disabled selected value> -- select an option -- </option>
             <?php 
@@ -114,7 +112,7 @@ integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeV
         <h4>Choisissez votre bachelor</h4>
       </div>
       <div class="fac2">
-        <select name="programmes" id="programmes" onchange="">
+        <select name="programmes" id="programmes" onchange="" class="form-control form-control-sm" style="width:50%">
           <option disabled selected value> -- select an option -- </option>
         </select>
       </div>

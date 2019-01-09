@@ -45,27 +45,29 @@ integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeV
       <div class="onglet">
         <a id="ong2" href="accueil.php" style="color:white;">Rechercher un cours</a>
         <?php
-						if (isset($_SESSION['id'])) {
-							echo '<a id="ong2" href="tableau.php" style="color:white;">Mon Tableau</a>';
-						}
-						else {
-							echo ' <a id="ong2" href="connect.php" style="color:white;">Mon Tableau</a>';
-						}
-		?>
+								if (isset($_SESSION['id'])) {
+									echo '<a id="ong2" href="tableau.php" style="color:white;">Mon Tableau</a>';
+								}
+								else {
+									echo ' <a id="ong2" href="connect.php" style="color:white;">Mon Tableau</a>';
+								}
+							?>
         <?php
-						if (isset($_SESSION['id'])) {
-							echo '<form action="logout.php" method="POST">
-							<button type="submit" name="submit">Logout</button>
-							</form>';
-						}
-						else {
-							echo '<a id="ong3" href="connect.php" style="color:white;">Me connecter</a>';
-						}
-		?>
+								if (isset($_SESSION['id'])) {
+									echo '<form action="logout.php" method="POST" id="ong2">
+									<button type="submit" name="submit" class="btn btn-dark btn-sm" id="logout">Se deconnecter</button>
+									</form>';
+								}
+								else {
+                                    echo '<a href="connect.php" id="ong2"><button class="btn btn-dark btn-sm">Se connecter</button></a>';
+
+								}
+							?>
       </div> 
   </div>
   </div>
   </nav>
+
 
 
   <?php
@@ -89,30 +91,30 @@ integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeV
 
 
       <div class="input">
-         <input type="text" name="recherche" placeholder="Rechercher un cours">
-           <button type="button" name="button"><i class="fas fa-search"></i></button>
+          
+      <input type="text" name="recherche" placeholder="Rechercher un cours" class="form-control" aria-label="Search" style="width:60%; left:50%; margin:auto;">
       </div>
       <div class="facc">
         <?php 
             while ($row1 = $res -> fetch()) {
                 if ($row1 ==true ){
-                    echo "<h4 style='font-weight: bold'>".$row1[0]." </h4>";
+                    echo "<h4 style='font-size:25px;'>".$row1[0]." </h4>";
                 }
             }
     
         ?>
-        <hr>
+        <hr align="left" width="80%" style="border: 0.04em solid #DADADA; margin-top:30px; margin-bottom:30px;">
       </div>
-       <div class="desc">
+       <div class="desc" style="margin-bottom:40px;">
 
         <div>
-        <select name="Semestre" class="Semestre">
+        <select name="Semestre" class="form-control form-control-sm" style="width: 80%;">
             <option value="1">Semestre d'automne</option>
             <option value="2">Semestre de printemps</option>
         </select>
     </div>
     	<div>
-        <select name="Types" class="Type">
+        <select name="Types" class="form-control form-control-sm" style="width: 80%;">
             <option value="obligatoire">Enseignement obligatoire</option>
             <option value="optionnel">Enseignement à option</option>
         </select>
@@ -120,9 +122,7 @@ integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeV
 
     </div>
     	<div class="Liste">
-        <h4 style="font-weight: bold; padding-bottom: 20px;">Liste des cours</h4>
-        <!-- <?php echo "<h5> Bienvenue ".$_SESSION['id']." wallah toi fort</h5>"  ?> -->
-
+        <h4 style="padding-bottom: 20px; font-size:25px;">Liste des cours</h4>
       </div>
 							<table class="fold-table">
 							  <thead>
@@ -148,7 +148,7 @@ integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeV
                                         echo "<td class = 'Horaire'>".$row[7].",".$row[8].",".$row[9]."</td>";
                                 ?>
                                 </tr> 
-							    <tr class="fold"  style="background-color:#FFF6E2;">
+							    <tr class="fold"  style="background-color:#FFFCF4;">
 							      <td colspan="7">
 							        <div class="fold-content">
                                      <?php
@@ -158,7 +158,7 @@ integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeV
                         echo "<p>".$row[10]."<p>";
                          ?>
                      <?php
-                     echo "<button onclick='add(".$row[0].")' class='btn btn-success'>Ajouter</button>";
+                     echo "<button onclick='add(".$row[0].")' class='btn btn-secondary'>Ajouter</button>";
                      ?>
 							        </div>
 							      </td>
@@ -177,7 +177,7 @@ function add(idcours){
 	  var xmlhttp = new XMLHttpRequest();
 	  xmlhttp.onreadystatechange = function() {
 	        if (this.readyState == 4 && this.status == 200) {
-		        alert(this.responseText);
+		        alert(this.responseText + "Le cours a bien été ajouté");
 	    }
 	  }
         idetud = "<?php echo $_SESSION['id']; ?>";
