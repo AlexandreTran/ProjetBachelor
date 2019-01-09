@@ -23,9 +23,6 @@ integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeV
 <body>
 
 
-
-
-
 <nav>
   <div class="header">
   <div class="wrapper">
@@ -42,15 +39,16 @@ integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeV
 									echo ' <a id="ong2" href="connect.php" style="color:white;">Mon Tableau</a>';
 								}
 							?>
-        <!-- <a id="ong2" href="tableau.php" style="color:white;">Mon Tableau</a> -->
         <?php
 								if (isset($_SESSION['id'])) {
-									echo '<form action="logout.php" method="POST">
-									<button type="submit" name="submit">Logout</button>
+									echo '<form action="logout.php" method="POST" id="ong2">
+									<button type="submit" name="submit" class="btn btn-dark btn-sm" id="logout">Se deconnecter</button>
 									</form>';
 								}
 								else {
-									echo '<a id="ong3" href="connect.php" style="color:white;">Me connecter</a>';
+                  // echo '<a id="ong3" href="connect.php" style="color:white;">Me connecter</a>';
+                  echo '<a href="connect.php" id="ong2"><button class="btn btn-dark btn-sm">Se connecter</button></a>';
+
 								}
 							?>
       </div> 
