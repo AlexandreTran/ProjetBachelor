@@ -14,31 +14,11 @@ integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLP
 integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<script src="function.js"></script>
 
 <link href="https://fonts.googleapis.com/css?family=Montserrat:300,700" rel="stylesheet">
 <title>accueil</title>
 </head>
-
-
-
-<script>
-
-    function programme(idstructure){
-
-
-      var xmlhttp = new XMLHttpRequest();
-      xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-              document.getElementById("programmes").innerHTML = this.responseText;
-        }
-      }
-              
-		xmlhttp.open("GET", "func.php?id="+ idstructure.value, false);
-		xmlhttp.send();
-        document.getElementById("sub2").disabled = false;
-}
-</script>
-
 <body>
 
 <nav>
@@ -79,10 +59,9 @@ integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeV
               while ($row = $result -> fetch()) {
                   if ($row ==true ){
                       echo "<option value=".$row["ID"].">".$row["Nom"]."</option>";
-                  }
-              }
-
-            ?>
+               }
+            }
+          ?>
 
         </select>
       </div>
@@ -104,35 +83,5 @@ integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeV
 
 </div>
 </div>
-
-
-<script>
-  function display(){
-    var selection = document.getElementById("programmes");
-    if(selection.value != "-- select an option --" ){
-        var button = document.getElementById("sub2");
-        button.style.disabled = false;
-    }
-
-  }
-</script>
-
-
-<!-- 
-<?php
-
-$req = "SELECT * FROM Cours";
-$result = $bddconn -> query($req);
-
-while ($row = $result -> fetch()) {
-    if ($row ==true ){
-        echo $row["ID"];
-    }
-}
-
-?> -->
-
-
-
 </body>
 </html>

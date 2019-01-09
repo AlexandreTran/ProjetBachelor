@@ -19,19 +19,21 @@ integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeV
 
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+<script src="function.js"></script>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-
-
-<title>catalogue</title>
-</head>
 <script>
-          $(function(){
-  $(".fold-table tr.view").on("click", function(){
-    $(this).toggleClass("open").next(".fold").toggleClass("open");
+	
+</script>
+<script>
+	$(function(){
+    	$(".fold-table tr.view").on("click", function(){
+	$(this).toggleClass("open").next(".fold").toggleClass("open");
   });
 });
 </script>
 
+<title>catalogue</title>
+</head>
 <body>
 
 <nav>
@@ -59,7 +61,7 @@ if(isset($_POST['prog'])&& !empty($_POST['prog'])){
 
     $res = $bddconn -> query($reqtitre);
 
-    $req = "SELECT Cours.Code, Cours.Intitule, Professeur.Nom, Professeur.Prenom, Cours_Programme.NCredits, Periodicite.Periode, Cours_Salle.Jour, Cours_Salle.HeureDebut, Cours_Salle.HeureFin, Cours.Description, Cours.Moodle, Cours.MediaServer, Cours.Evaluation, Salle.Nom, Salle.Batiment, Cours.Type
+    $req = "SELECT Cours.ID, Cours.Code, Cours.Intitule, Professeur.Nom, Professeur.Prenom, Cours_Programme.NCredits, Periodicite.Periode, Cours_Salle.Jour, Cours_Salle.HeureDebut, Cours_Salle.HeureFin, Cours.Description, Cours.Moodle, Cours.MediaServer, Cours.Evaluation, Salle.Nom, Salle.Batiment, Cours.Type
             FROM Cours, Professeur, Cours_Prof, Cours_Programme, Cours_Salle, Periodicite, Salle
             Where Cours.ID = Cours_Salle.IdCours AND Salle.ID = Cours_Salle.IdSalle AND Cours.ID = Cours_Prof.IdCours AND Professeur.ID = Cours_Prof.IdProfesseur AND Cours.ID = Cours_Programme.IdCours AND Cours_Programme.IdProgramme = ".$idprogramme." AND Cours.ID = Cours_Salle.IdCours AND Salle.ID = Cours_Salle.IdSalle GROUP BY Cours.Code";
     $result = $bddconn -> query($req);
@@ -122,24 +124,16 @@ if(isset($_POST['prog'])&& !empty($_POST['prog'])){
                         if ($row ==true ){
 
                 ?>
-							  <tbody>
+							  <tbody id = '<?php $row[0]; ?>'>
 							    <tr class="view">
                 <?php
-                    for($i=0; $i<9; $i++){
-                        if($i==2){
-                            echo "<td>".$row[2].",".$row[3]."</td>";
-                            $i++;
-                        }
-                        else if($i==6){
-                            echo "<td>".$row[6].",".$row[7].",".$row[8]."</td>";
-                            $i=$i+2;
-                        }
-                        else{
-                         echo "<td>".$row[$i]."</td>";
-                        
-                        }
-                    }
-
+    					
+    					echo "<td class = 'Code'>".$row[1]."</td>";
+    					echo "<td class = 'Intitule'>".$row[2]."</td>";
+    					echo "<td class = 'Prof'>".$row[3].",".$row[4]."</td>";
+    					echo "<td class = 'NCds'>".$row[5]."</td>";
+    					echo "<td class = 'Semestre'>".$row[6]."</td>";
+    					echo "<td class = 'Horaire'>".$row[7].",".$row[8].",".$row[9]."</td>";
                 ?>
 
 							    </tr>
@@ -147,13 +141,16 @@ if(isset($_POST['prog'])&& !empty($_POST['prog'])){
 							      <td colspan="7">
 							        <div class="fold-content">
                                      <?php
-                        echo "<h3>".$row[1]."<h3>";?>
+                        echo "<h3>".$row[2]."<h3>";?>
                             <h5>Descriptif du cours :</h5>
                         <?php
-                        echo "<p>".$row[9]."<p>";
-
+                        echo "<p>".$row[10]."<p>";
+						// echo"<button>ajouter</button>";
                      ?>
-
+                     <?php
+                     echo "<button onclick='add(".$row[0].")'>Ajouter</button>";
+                     ?>
+              <!-- -->
 							        </div>
 							      </td>
 							    </tr>

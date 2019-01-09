@@ -29,9 +29,16 @@ include "cours.php";
             }
         }
     }
+    
 
-
-
-
-
+if(isset($_GET) && !empty($_GET["cours"])){
+    $req = "SELECT ID FROM Cours WHERE ID = ".$_GET["cours"];
+    $result = $bddconn -> query($req);
+    while ($row = $result -> fetch()) {
+         if ($row ==true ){
+                $req1 = "INSERT INTO Etudiant_Cours (IdEtudiant, IdCours) VALUES (Null, ".$row[0].")";
+                $bddconn -> exec($req1);
+            }
+        }
+  }
 ?>
