@@ -1,0 +1,323 @@
+.wrapper > div {
+  padding : 15px;
+}
+
+.wrapper{
+  display: grid;
+  grid-template-columns: 8fr 6fr;
+  grid-gap: 1em;
+  grid-auto-rows: minmax(60px, auto);
+}
+
+.header{
+  background: #AA205A;
+  color: #fff;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 25px;
+}
+
+.logo{
+  margin-left: 30px;
+}
+
+.onglet{
+  margin-top: 6px;
+  font-size: 14px;
+  margin-left: 60px;
+  text-align: center;
+}
+.onglet2{
+  margin-top: 6px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.onglet4{
+  text-align: center;
+}
+.onglet3{
+  margin-top: 6px;
+  font-size: 14px;
+  margin-right: 50px;
+  text-align: center;
+}
+
+#ong2{
+  margin-left: 30px;
+}
+
+#ong3{
+  margin-left:30px;
+}
+
+
+
+.content{
+  padding: 40px;
+}
+
+.wrapper2{
+  display: grid;
+  grid-template-rows: 100px;
+}
+
+.input3{
+  width: 70%;
+}
+
+.input{
+  text-align: center;
+}
+
+.sub2{
+  width:25%;
+}
+
+
+button{
+  position:absolute;
+  border:none;
+  text-align:center;
+}
+
+h3{
+  font-size: 15px;
+  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
+
+}
+
+.fac{
+  padding-left: 80px;
+}
+
+
+select{
+  width: 50%;
+  height: 40px;
+}
+
+.fac2{
+  padding-left: 80px;
+  padding-top: 15px;
+}
+
+
+.bache{
+  padding-left: 80px;
+  padding-top: 30px;
+}
+
+.submit{
+  padding-left: 80px;
+  padding-top: 30px;
+}
+
+.submit{
+  padding-left: 80px;
+  padding-top: 30px;
+}
+
+
+a { color: white; } 
+
+
+
+.content{
+  padding: 40px;
+  font-family: "Open Sans", sans-serif;
+}
+
+.wrapper{
+  display: grid;
+  grid-template-rows: 70px;
+}
+
+input{
+  width: 70%;
+}
+
+.input{
+  text-align: center;
+}
+
+
+button{
+  border:none;
+}
+
+h3{
+  font-size: 15px;
+  font-weight: 500;
+  font-family: 'Open Sans', sans-serif;
+  color: #383838;
+}
+
+
+.fac{
+  padding-left: 80px;
+}
+
+.desc {
+  padding-left: 40px;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-gap: 1em;
+}
+
+
+.Type{
+  margin-left: 20px;
+}
+
+
+
+
+
+/*tableau*/
+
+p{
+  font-family: "Open Sans", sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+
+.Liste{
+  padding-top: 20px;
+  padding-left: 40px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+.content{
+  padding: 40px;
+  font-family: "Open Sans", sans-serif;
+}
+
+.wrapper{
+  display: grid;
+  grid-template-rows: 70px;
+}
+
+input{
+  width: 70%;
+}
+
+.input{
+  text-align: center;
+}
+
+
+button{
+  border:none;
+}
+
+h3{
+  font-size: 15px;
+  font-weight: 500;
+  font-family: 'Open Sans', sans-serif;
+  color: #383838;
+}
+
+
+.fac{
+  padding-left: 80px;
+}
+
+
+.Type{
+  margin-left: 20px;
+}
+
+
+
+
+
+/*tableau*/
+
+p{
+  font-family: "Open Sans", sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+
+.Liste{
+  padding-top: 20px;
+}
+
+
+
+* {
+  box-sizing: border-box;
+}
+
+table {
+  width: 100%;
+}
+table th {
+  text-align: left;
+  border-bottom: 1px solid #ccc;
+}
+table th, table td {
+  padding: .4em;
+}
+
+table.fold-table > tbody > tr.view td, table.fold-table > tbody > tr.view th {
+  cursor: pointer;
+}
+table.fold-table > tbody > tr.view td:first-child,
+table.fold-table > tbody > tr.view th:first-child {
+  position: relative;
+  padding-left: 20px;
+}
+table.fold-table > tbody > tr.view td:first-child:before,
+table.fold-table > tbody > tr.view th:first-child:before {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  width: 9px;
+  height: 16px;
+  margin-top: -8px;
+  font: 16px fontawesome;
+  color: #999;
+  content: "\f0d7";
+  transition: all .3s ease;
+}
+table.fold-table > tbody > tr.view:nth-child(4n-1) {
+  background: #eee;
+}
+table.fold-table > tbody > tr.view:hover {
+  background-color: grey;
+}
+table.fold-table > tbody > tr.view.open {
+  background: #BD4175;
+  color: white;
+}
+table.fold-table > tbody > tr.view.open td:first-child:before, table.fold-table > tbody > tr.view.open th:first-child:before {
+  transform: rotate(-180deg);
+  color: #333;
+}
+table.fold-table > tbody > tr.fold {
+  display: none;
+}
+table.fold-table > tbody > tr.fold.open {
+  display: table-row;
+}
+
+.fold-content {
+  padding: .5em;
+}
+.fold-content h3 {
+  margin-top: 0;
+}
+.fold-content > table {
+  border: 2px solid #ccc;
+}
+.fold-content > table > tbody tr:nth-child(even) {
+  background: #eee;
+}
