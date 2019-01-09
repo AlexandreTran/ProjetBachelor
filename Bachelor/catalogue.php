@@ -77,9 +77,7 @@ integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeV
 
             $res = $bddconn -> query($reqtitre);
 
-            $req = "SELECT Cours.ID, Cours.Code, Cours.Intitule, Professeur.Nom, Professeur.Prenom, Cours_Programme.NCredits, Periodicite.Periode, Cours_Salle.Jour, Cours_Salle.HeureDebut, Cours_Salle.HeureFin, Cours.Description, Cours.Moodle, Cours.MediaServer, Cours.Evaluation, Salle.Nom, Salle.Batiment, Cours.Type
-            FROM Cours, Professeur, Cours_Prof, Cours_Programme, Cours_Salle, Periodicite, Salle
-            Where Cours.ID = Cours_Salle.IdCours AND Salle.ID = Cours_Salle.IdSalle AND Cours.ID = Cours_Prof.IdCours AND Professeur.ID = Cours_Prof.IdProfesseur AND Cours.ID = Cours_Programme.IdCours AND Cours_Programme.IdProgramme = ".$idprogramme." AND Cours.ID = Cours_Salle.IdCours AND Salle.ID = Cours_Salle.IdSalle GROUP BY Cours.Code";
+            $req = "SELECT Cours.ID, Cours.Code, Cours.Intitule, Professeur.Nom, Professeur.Prenom, Cours_Programme.NCredits, Periodicite.Periode, Cours_Salle.Jour, Cours_Salle.HeureDebut, Cours_Salle.HeureFin, Cours.Description, Cours.Moodle, Cours.MediaServer, Cours.Evaluation, Salle.Nom, Salle.Batiment, Cours.Type FROM Cours, Professeur, Cours_Prof, Cours_Programme, Cours_Salle, Periodicite, Salle Where Cours.ID = Cours_Salle.IdCours AND Salle.ID = Cours_Salle.IdSalle AND Cours.ID = Cours_Prof.IdCours AND Professeur.ID = Cours_Prof.IdProfesseur AND Cours.ID = Cours_Programme.IdCours AND Cours_Programme.IdProgramme = ".$idprogramme." AND Cours.ID = Cours_Salle.IdCours AND Salle.ID = Cours_Salle.IdSalle GROUP BY Cours.Code";
             $result = $bddconn -> query($req);
 
         ?>
@@ -99,7 +97,6 @@ integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeV
                     echo "<h4 style='font-weight: bold'>".$row1[0]." </h4>";
                 }
             }
-    
         ?>
         <hr>
       </div>
@@ -112,9 +109,9 @@ integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeV
         </select>
     </div>
     	<div>
-        <select name="Types" class="Type">
-            <option value="obligatoire">Enseignement obligatoire</option>
-            <option value="optionnel">Enseignement à option</option>
+        <select name="Types" class="Type" onchange="">
+            <option value="Enseignement obligatoire">Enseignement obligatoire</option>
+            <option value="Enseignement Option">Enseignement à option</option>
         </select>
     	</div>
 
@@ -184,6 +181,10 @@ function add(idcours){
 		xmlhttp.open("GET", "func.php?cours="+ idcours +"&etudiant="+ idetud, false);
 		xmlhttp.send();
 }
+function switchSemestre(){
+    
+}
+
 </script>
 </body>
 </html>

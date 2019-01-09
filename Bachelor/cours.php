@@ -15,15 +15,4 @@
             {
             echo "Connection failed: " . $e->getMessage();
             }
-
-        // $req = "SELECT * FROM Cours";
-        // $result = $bddconn -> query($req);
-
-        // while ($row = $result -> fetch()) {
-        //     if ($row ==true ){
-        //         echo $row["ID"];
-        //     }
-        // }
-
-
 ?>
