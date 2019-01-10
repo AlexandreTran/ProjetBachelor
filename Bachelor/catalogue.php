@@ -111,15 +111,10 @@ integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeV
         </select>
     </div>
     	<div>
-<<<<<<< HEAD
-        <select name="Types" class="Type" onchange="">
-            <option value="Enseignement obligatoire">Enseignement obligatoire</option>
-            <option value="Enseignement Option">Enseignement à option</option>
-=======
         <select name="Types" class="form-control form-control-sm" style="width: 80%;">
             <option value="obligatoire">Enseignement obligatoire</option>
             <option value="optionnel">Enseignement à option</option>
->>>>>>> 01694d5a1b3d65ccbfebf6ca24f0cfc5f0442211
+
         </select>
     	</div>
 
